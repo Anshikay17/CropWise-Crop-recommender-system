@@ -34,7 +34,7 @@ import pickle
 
 # Load the model using pickle
 try:
-    with open('Crop_model (1).sav.pickle', 'rb') as f:
+    with open('Crop_model (1).sav', 'rb') as f:
         crop_model = pickle.load(f)
     st.success("Model loaded successfully!")
 except Exception as e:
