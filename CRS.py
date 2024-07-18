@@ -30,7 +30,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-crop_model = pickle.load(open('Crop_model (1).sav','rb'))
+crop_model = pickle.load(open('Crop_model (1).sav'))
 
 
 def main():
