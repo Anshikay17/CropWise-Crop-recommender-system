@@ -31,17 +31,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Load model with exception handling
-try:
-    st.write("Loading model...")
     crop_model = pickle.load(open('Crop_model (1).sav','rb'))
-    st.write("Model loaded successfully.")
-except FileNotFoundError:
-    st.error("Model file not found. Please check the file path.")
-    st.stop()
-except Exception as e:
-    st.error(f"An error occurred while loading the model: {e}")
-    st.stop()
+
 
 def main():
     # Title
