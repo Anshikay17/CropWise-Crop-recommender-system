@@ -30,7 +30,15 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-crop_model = ('Crop_model (1).sav.pickle')
+import pickle
+
+# Load the model using pickle
+try:
+    with open('Crop_model (1).sav.pickle', 'rb') as f:
+        crop_model = pickle.load(f)
+    st.success("Model loaded successfully!")
+except Exception as e:
+    st.error(f"Failed to load the model: {e}")
 
 
 def main():
