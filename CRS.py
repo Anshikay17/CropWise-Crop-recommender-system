@@ -9,11 +9,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import os
-import warnings
-import joblib
-from streamlit_option_menu import option_menu
-import sklearn
-import base64
+
 
 # Set page configuration with Unicode emoji for the icon
 st.set_page_config(
