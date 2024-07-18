@@ -10,7 +10,7 @@ import pandas as pd
 import numpy as np
 import os
 import pickle
-
+import sklearn
 # Set page configuration with Unicode emoji for the icon
 st.set_page_config(
     page_title="CropWise",
@@ -30,7 +30,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-import pickle
 
 # Load the model using pickle
 try:
