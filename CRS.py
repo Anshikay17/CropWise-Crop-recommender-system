@@ -7,10 +7,13 @@ Created on Fri Jul  5 18:35:47 2024
 import subprocess
 
 # Install necessary libraries
-subprocess.run(["pip", "install", "scikit-learn"])
-subprocess.run(["pip", "install", "numpy"])
-subprocess.run(["pip", "install", "pandas"])
-subprocess.run(["pip", "install", "pickle-mixin"])
+subprocess.run(["pip", "install", "scikit-learn==0.24.2"])
+subprocess.run(["pip", "install", "numpy==1.21.0"])
+subprocess.run(["pip", "install", "pandas==1.3.0"])
+subprocess.run(["pip", "install", "pickle-mixin==1.0.2"])
+subprocess.run(["pip", "install", "streamlit==1.36.0"])
+subprocess.run(["pip", "install", "streamlit-option-menu==0.3.13"])
+subprocess.run(["pip", "install", "joblib==1.4.2"])
 
 import streamlit as st
 import pandas as pd
@@ -31,7 +34,6 @@ st.markdown(
     """
     <style>
     .stApp {
-        
         background-color: #D0E7D2; /* Light pastel color */
     }
     </style>
