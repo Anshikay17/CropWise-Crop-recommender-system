@@ -4,6 +4,13 @@ Created on Fri Jul  5 18:35:47 2024
 
 @author: Dell
 """
+import subprocess
+
+# Install necessary libraries
+subprocess.run(["pip", "install", "scikit-learn"])
+subprocess.run(["pip", "install", "numpy"])
+subprocess.run(["pip", "install", "pandas"])
+subprocess.run(["pip", "install", "pickle-mixin"])
 
 import streamlit as st
 import pandas as pd
