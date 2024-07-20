@@ -15,7 +15,7 @@ import pandas as pd
 import numpy as np
 import os
 import pickle
-
+import sklearn
 
 # Set page configuration with Unicode emoji for the icon
 st.set_page_config(
