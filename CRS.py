@@ -7,7 +7,7 @@ Created on Fri Jul  5 18:35:47 2024
 import subprocess
 
 # Install necessary libraries
-subprocess.run(["pip", "install", "scikit-learn==1.0.2"])
+subprocess.run(["pip", "install", "scikit-learn"])
 
 
 import streamlit as st
