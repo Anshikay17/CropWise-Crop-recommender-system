@@ -39,7 +39,7 @@ st.markdown(
 # Load model with exception handling
 try:
     st.write("Loading model...")
-    crop_model = joblib.load('RandomForest.pkl')
+    crop_model = joblib.load('Crop_model.pkl')
     st.write("Model loaded successfully.")
 except FileNotFoundError:
     st.error("Model file not found. Please check the file path.")
