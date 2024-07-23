@@ -1,21 +1,6 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jul  5 18:35:47 2024
-
-@author: Dell
-"""
-import subprocess
-
-# Install necessary libraries
-subprocess.run(["pip", "install", "scikit-learn"])
-
-
 import streamlit as st
-import pandas as pd
 import numpy as np
-import os
 import pickle
-import sklearn
 
 # Set page configuration with Unicode emoji for the icon
 st.set_page_config(
@@ -41,9 +26,9 @@ try:
     with open('Crop_model.sav', 'rb') as f:
         crop_model = pickle.load(f)
     st.success("Model loaded successfully!")
+    print("Model type:", type(crop_model))  # Debug print
 except Exception as e:
     st.error(f"Failed to load the model: {e}")
-
 
 def main():
     # Title
@@ -97,13 +82,14 @@ def main():
 
     if st.button('Recommend Crop'):
         user_input = [N, P, K, temp, humidity, ph, rainfall]
-        user_input = [user_input]  # Wrap in another list to create a 2D array
+        user_input = [user_input]  # Ensure it's a 2D array
 
-
-        crop_prediction = crop_model.predict([user_input])
-        
-    st.success(crop_recommendation)
+        try:
+            crop_prediction = crop_model.predict(user_input)
+            crop_recommendation = crop_prediction[0]
+            st.success(f"Recommended Crop: {crop_recommendation}")
+        except Exception as e:
+            st.error(f"Prediction failed: {e}")
 
 if __name__ == '__main__':
     main()
-    
