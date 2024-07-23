@@ -97,7 +97,8 @@ def main():
 
     if st.button('Recommend Crop'):
         user_input = [N, P, K, temp, humidity, ph, rainfall]
-        user_input = [float(x) for x in user_input]
+        user_input = [user_input]  # Wrap in another list to create a 2D array
+
 
         crop_prediction = crop_model.predict([user_input])
         
