@@ -40,7 +40,7 @@ st.markdown(
 
    
 try:
-    with open('Crop_model (2).sav', 'rb') as f:
+    with open('RandomForest.pkl, 'rb') as f:
         crop_model = pickle.load(f)
     st.success("Model loaded successfully!")
     print("Model type:", type(crop_model))  # Debug print
