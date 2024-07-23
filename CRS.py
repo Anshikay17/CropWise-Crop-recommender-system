@@ -14,6 +14,7 @@ import joblib
 from streamlit_option_menu import option_menu
 import sklearn
 import base64
+import pickle
 
 # Set page configuration with Unicode emoji for the icon
 st.set_page_config(
