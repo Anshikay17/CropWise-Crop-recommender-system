@@ -1,6 +1,19 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jul  5 18:35:47 2024
+
+@author: Dell
+"""
+
 import streamlit as st
+import pandas as pd
 import numpy as np
-import pickle
+import os
+import warnings
+import joblib
+from streamlit_option_menu import option_menu
+import sklearn
+import base64
 
 # Set page configuration with Unicode emoji for the icon
 st.set_page_config(
@@ -14,6 +27,7 @@ st.markdown(
     """
     <style>
     .stApp {
+        
         background-color: #D0E7D2; /* Light pastel color */
     }
     </style>
@@ -21,14 +35,12 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Load the model using pickle
-try:
-    with open('Crop_model.sav', 'rb') as f:
-        crop_model = pickle.load(f)
-    st.success("Model loaded successfully!")
-    print("Model type:", type(crop_model))  # Debug print
-except Exception as e:
-    st.error(f"Failed to load the model: {e}")
+# Load model with exception handling
+
+   
+crop_model = joblib.load('C:/Users/Dell/Desktop/Crop_recommender_project/Crop_model.sav')
+    
+
 
 def main():
     # Title
@@ -81,15 +93,20 @@ def main():
     crop_recommendation = ''
 
     if st.button('Recommend Crop'):
+        st.write("Button clicked, making prediction...")
         user_input = [N, P, K, temp, humidity, ph, rainfall]
-        user_input = [user_input]  # Ensure it's a 2D array
+        user_input = [float(x) for x in user_input]
 
         try:
-            crop_prediction = crop_model.predict(user_input)
-            crop_recommendation = crop_prediction[0]
-            st.success(f"Recommended Crop: {crop_recommendation}")
+            crop_prediction = crop_model.predict([user_input])
+            crop_recommendation = f'The recommended crop is: {crop_prediction[0]}'
+            st.write("Prediction successful.")
         except Exception as e:
-            st.error(f"Prediction failed: {e}")
+            st.error(f"An error occurred during prediction: {e}")
+            st.write("Prediction failed.")
+
+    st.success(crop_recommendation)
 
 if __name__ == '__main__':
     main()
+
