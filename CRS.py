@@ -15,9 +15,6 @@ from streamlit_option_menu import option_menu
 import sklearn
 import base64
 import pickle
-import pickle
-
-import pickle
 from sklearn.ensemble import RandomForestClassifier
 
 # Set page configuration with Unicode emoji for the icon
@@ -32,7 +29,6 @@ st.markdown(
     """
     <style>
     .stApp {
-        
         background-color: #D0E7D2; /* Light pastel color */
     }
     </style>
@@ -75,29 +71,29 @@ def main():
     st.markdown("## How does it work ❓")
     st.markdown("Enter all the parameters and the machine learning model will predict the most suitable crops to grow in a particular farm based on various parameters.")
 
-    # Input columns
+    # Input columns with unique keys
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        N = st.number_input('Nitrogen (in ppm)', min_value=0.0, step=1.0)
+        N = st.number_input('Nitrogen (in ppm)', min_value=0.0, step=1.0, key='N')
 
     with col2:
-        P = st.number_input('Phosphorous (in ppm)', min_value=0.0, step=1.0)
+        P = st.number_input('Phosphorous (in ppm)', min_value=0.0, step=1.0, key='P')
 
     with col3:
-        K = st.number_input('Potassium (in ppm)', min_value=0.0, step=1.0)
+        K = st.number_input('Potassium (in ppm)', min_value=0.0, step=1.0, key='K')
 
     with col1:
-        temp = st.number_input('Temperature (°C)', min_value=-10.0, max_value=60.0, step=1.0)
+        temp = st.number_input('Temperature (°C)', min_value=-10.0, max_value=60.0, step=1.0, key='temp')
 
     with col2:
-        humidity = st.number_input('Humidity (%)', min_value=0.0, max_value=100.0, step=1.0)
+        humidity = st.number_input('Humidity (%)', min_value=0.0, max_value=100.0, step=1.0, key='humidity')
 
     with col3:
-        ph = st.number_input('Ph (1-14)', min_value=0.0, max_value=14.0, step=0.1)
+        ph = st.number_input('Ph (1-14)', min_value=0.0, max_value=14.0, step=0.1, key='ph')
 
     with col1:
-        rainfall = st.number_input('Rainfall (mm)', min_value=0.0, step=0.01)
+        rainfall = st.number_input('Rainfall (mm)', min_value=0.0, step=0.01, key='rainfall')
 
     # Prediction and recommendation
     crop_recommendation = ''
@@ -119,8 +115,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-if __name__ == '__main__':
-    main()
-
