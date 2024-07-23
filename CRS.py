@@ -43,7 +43,7 @@ st.markdown(
 # Load model with exception handling
 try:
     st.write("Loading model...")
-    crop_model = joblib.load('C:/Users/Dell/Desktop/Crop_recommender_project/RandomForest.pkl')
+    crop_model = joblib.load('RandomForest.pkl')
     st.write("Model loaded successfully.")
 except FileNotFoundError:
     st.error("Model file not found. Please check the file path.")
