@@ -38,7 +38,13 @@ st.markdown(
 # Load model with exception handling
 
    
-crop_model = joblib.load('C:/Users/Dell/Desktop/Crop_recommender_project/Crop_model.sav')
+try:
+    with open('Crop_model.sav', 'rb') as f:
+        crop_model = pickle.load(f)
+    st.success("Model loaded successfully!")
+    print("Model type:", type(crop_model))  # Debug print
+except Exception as e:
+    st.error(f"Failed to load the model: {e}")
     
 
 
