@@ -15,6 +15,10 @@ from streamlit_option_menu import option_menu
 import sklearn
 import base64
 import pickle
+import pickle
+
+import pickle
+from sklearn.ensemble import RandomForestClassifier
 
 # Set page configuration with Unicode emoji for the icon
 st.set_page_config(
@@ -37,17 +41,16 @@ st.markdown(
 )
 
 # Load model with exception handling
-
-   
 try:
-    with open('RandomForest.pkl, 'rb') as f:
-        crop_model = pickle.load(f)
-    st.success("Model loaded successfully!")
-    print("Model type:", type(crop_model))  # Debug print
+    st.write("Loading model...")
+    crop_model = joblib.load('C:/Users/Dell/Desktop/Crop_recommender_project/RandomForest.pkl')
+    st.write("Model loaded successfully.")
+except FileNotFoundError:
+    st.error("Model file not found. Please check the file path.")
+    st.stop()
 except Exception as e:
-    st.error(f"Failed to load the model: {e}")
-    
-
+    st.error(f"An error occurred while loading the model: {e}")
+    st.stop()
 
 def main():
     # Title
@@ -113,6 +116,10 @@ def main():
             st.write("Prediction failed.")
 
     st.success(crop_recommendation)
+
+if __name__ == '__main__':
+    main()
+
 
 if __name__ == '__main__':
     main()
