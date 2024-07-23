@@ -106,7 +106,7 @@ def main():
         try:
             crop_prediction = crop_model.predict([user_input])
             crop_recommendation = f'The recommended crop is: {crop_prediction[0]}'
-            st.write("Prediction successful.")
+           
         except Exception as e:
             st.error(f"An error occurred during prediction: {e}")
             st.write("Prediction failed.")
