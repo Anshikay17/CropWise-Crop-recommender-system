@@ -10,6 +10,9 @@ Interactive input forms with intuitive layouts.
 
 Project Files
 CRS.py=Streamlit app for crop recommendation UI and prediction logic.
+
 Crop_Recommendation_Model.ipynb=Jupyter Notebook for dataset exploration, model training, evaluation, and saving.
+
 Crop_model.pkl=Serialized Random Forest model loaded by the Streamlit app.
+
 requirements.txt=Python dependencies required to run the project.
