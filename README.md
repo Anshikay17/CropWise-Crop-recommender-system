@@ -1,12 +1,19 @@
 CropWise: Crop Recommender System 🌱
+
 CropWise is a machine learning-powered web application that helps farmers make informed crop selection decisions based on soil and climate parameters. It uses a trained Random Forest model to recommend the most suitable crops for specified environmental conditions.
 
 Features
+
 User-friendly web interface built with Streamlit.
+
 Inputs include soil nutrients (Nitrogen, Phosphorus, Potassium), temperature, humidity, pH level, and rainfall.
+
 Predicts optimal crop recommendation using a trained Random Forest classifier.
+
 Robust error handling for model loading and prediction.
+
 Interactive input forms with intuitive layouts.
+
 
 Project Files
 CRS.py=Streamlit app for crop recommendation UI and prediction logic.
